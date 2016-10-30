@@ -46,6 +46,9 @@ for day in range(number_of_days):
     for each_entry in new_nouns:
         database.new_database.append(each_entry)
 
+    # clean duplicates on new database
+    database.new_database = list(set(database.new_database))
+
     # get answer (from task)
     # select between write and draw
     q_new_option = random.choice(database.new_database)
@@ -62,8 +65,6 @@ for day in range(number_of_days):
     # ask the task
     task_answer = input(task+": ")
     print(task_answer)
-
-
 
 # add new nouns to database
 
