@@ -83,3 +83,9 @@ class ManageTasks():
             self.tasks_asked.append(task)
 
         return task_status
+
+    def get_task_answer(answer):
+        """
+        This method will receive the answer from the user
+        """
+        self.task_answer = answer

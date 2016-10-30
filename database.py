@@ -20,19 +20,19 @@ class ManageDatabase():
     """
     def __init__(self):
         # initialize self
-        self.database = self._load_base_set()
+        self.new_database = []
+        self.learning_database = self._load_learning_set()
 
-    def _load_base_set(self):
+    def _load_learning_set(self):
         """
         Base q_options.
         """
-        q_option = ["dog",
-                    "cat",
-                    "taco",
-                    "pizza",
-                    "blue",
+        q_option = ["food",
+                    "animal",
+                    "country",
+                    "color",
+                    "pet",
                     "red",
-                    "summer",
-                    "winter"]
+                    "season"]
 
         return q_option
