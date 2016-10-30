@@ -39,7 +39,7 @@ def init_text():
     """
     Print basic info about the app.
     """
-    print("*** Hello, welcome to the Creative Machine! (v1.0) ***")
+    print("*** Hello, welcome to the Creative Machine! (v1.1) ***")
     print("\nHave you ever heard about Creative Therapy?")
     print("\nCreative therapy refers to a group of techniques that are expressive")
     print("and creative in nature. The aim of creative therapies is to help")

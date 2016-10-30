@@ -15,6 +15,7 @@ __date__ = "October 29, 2016"
 
 # import
 from textblob import TextBlob
+import matplotlib.pyplot as plt
 
 
 def get_nouns(text):
@@ -31,3 +32,41 @@ def get_nouns(text):
             list_nouns.append(word)
 
     return list_nouns
+
+def sentiment_analysis(text):
+    """
+    Extract sentiment (from -1 to 1, in terms of being positive) and level of
+    emotion (from 0 to 1)
+
+    Input
+    ----------
+    text = text to be analysed
+
+    Output
+    ----------
+    p = sentiment level
+    s = level of emotion
+    """
+    p, s = TextBlob(text).sentiment
+    return p, s
+
+def report_sentiment(sentiment_data):
+    """
+    After complete the whole activity, create a small report based on the
+    sentiment collected.
+    """
+    p = sentiment_data[:,0]
+    s = sentiment_data[:,1]
+    day = sentiment_data[:,2]
+
+    # plot sentiment and subjectivity
+    plt.figure()
+    plt.title('Sentiment Analysis by Day')
+    plt.xlabel('Day')
+    plt.plot(day, p,'rx',label='polarity')
+    plt.plot(day, s,'bo',label='subjectivity')
+    plt.ylim(-1,1)
+    plt.legend()
+    plt.grid()
+
+    plt.show()
