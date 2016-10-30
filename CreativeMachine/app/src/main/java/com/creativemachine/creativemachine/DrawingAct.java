@@ -12,14 +12,29 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.amazonaws.auth.CognitoCachingCredentialsProvider;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.mobileconnectors.lambdainvoker.LambdaInvokerFactory;
 import java.util.UUID;
 
 public class DrawingAct extends AppCompatActivity implements OnClickListener{
+    static DrawingAct ma;
 
     private DrawingView drawView;
     private ImageButton currPaint, drawBtn, eraseBtn, newBtn, saveBtn;
 
     private float smallBrush, mediumBrush, largeBrush;
+
+    CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider(
+            getApplicationContext(),    /* get the context for the application */
+            "creative-machine-pool",    /* Identity Pool ID */
+            Regions.US_EAST_1    /* Region for your identity pool--US_EAST_1 or EU_WEST_1*/
+    );
+
+    LambdaInvokerFactory factory = new LambdaInvokerFactory(
+            DrawingAct.this.getApplicationContext(),
+            Regions.US_EAST_1 ,
+            credentialsProvider);
 
     public void paintClicked(View view){
         //use chosen color
@@ -43,6 +58,7 @@ public class DrawingAct extends AppCompatActivity implements OnClickListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ma=this;
         setContentView(R.layout.activity_drawing);
 
         drawView = (DrawingView)findViewById(R.id.drawing);
