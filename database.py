@@ -27,12 +27,21 @@ class ManageDatabase():
         """
         Base q_options.
         """
-        q_option = ["food",
-                    "animal",
-                    "country",
-                    "color",
-                    "pet",
-                    "red",
-                    "season"]
+        q_option = ["foods",
+                    "animals",
+                    "colors",
+                    "pets",
+                    "seasons"]
 
         return q_option
+
+def init_text():
+    """
+    Print basic info about the app.
+    """
+    print("*** Hello, welcome to the Creative Machine! (v1.0) ***")
+    print("\nHave you ever heard about Creative Therapy?")
+    print("\nCreative therapy refers to a group of techniques that are expressive")
+    print("and creative in nature. The aim of creative therapies is to help")
+    print("clients find a form of expression beyond words or traditional therapy,")
+    print("such as cognitive or psychotherapy.")

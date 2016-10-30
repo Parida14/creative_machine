@@ -31,8 +31,9 @@ class ManageInputs():
         ----------
         q_learning_option = keyword from the standard learning_database
         """
-        learning_question = ["tell me about your favorite ",
-                             "what do you think about "]
+        learning_question = ["Please, let me know your favorite ",
+                             "Please, let me know what you think about ",
+                             "Please, write the first thing that comes to your mind when you think about "]
         select_question = random.choice(learning_question)
 
         question = select_question + q_learning_option

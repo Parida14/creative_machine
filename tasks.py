@@ -25,11 +25,12 @@ class ManageTasks():
     gen_task = generates new tasks
     check_repeated_task = i will let you guess that
     """
+
     def ___init___(self):
-        self.tasks_asked = [] # empty list of tasks asked
+        self.tasks_asked = []  # empty list of tasks asked
 
     def initialize_class(self):
-        self.tasks_asked = [] # empty list of tasks asked
+        self.tasks_asked = []  # empty list of tasks asked
 
     def gen_task(self, q_type, q_option):
         """
@@ -48,12 +49,16 @@ class ManageTasks():
         """
         # check what it the task about
         if q_type == "write":
-            question = ["list 5 of your favorite ", "write about "]
+            question = ["Please, let me know what you most like on ",
+                        "Please, write a short sentence about ",
+                        "Please, write the first experience you had with "]
             select_question = random.choice(question)
 
         elif q_type == "draw":
-            draw = ["draw your favorite ",
-                    "draw the first thing it comes to your mind when you see a "]
+            draw = [
+                "In a separeted piece of paper, please draw your favorite ",
+                "In a separeted piece of paper, please draw the first thing it comes to your mind when you think about "
+            ]
             select_question = random.choice(draw)
 
         # output the task based on the option input

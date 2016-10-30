@@ -16,7 +16,7 @@ __date__ = "October 29, 2016"
 import random
 from extract import get_nouns
 from tasks import ManageTasks
-from database import ManageDatabase
+from database import ManageDatabase, init_text
 from manage_input import ManageInputs
 
 # parameters
@@ -25,20 +25,27 @@ number_of_days = 5
 # initialize all
 input_manager = ManageInputs()
 task_manager = ManageTasks()
-task_manager.initialize_class() # init not working?
+task_manager.initialize_class()  # init not working?
 
 database = ManageDatabase()
 
 input_data = ManageInputs()
 
+# initial menu
+init_text()
+print("\nFor this demo we will be simulating the activity for %i consecutive days." %number_of_days)
+print("On the final app you are supposed to complete only task a day. Take it easy :)")
+print("The important part is HOW you complete the task! Not the quantity.")
+username = input("\nWhen you are ready to start, please let me know how should I call you: ")
+
 # repeat for each day
 for day in range(number_of_days):
-    print("\n*** Day %i ***" %day)
+    print("\n*** Day %i ***" % day)
 
     # get input (ask learning questions)
     check_input = True
     count_input = 0
-    while check_input == True: # make sure it is not repeated
+    while check_input == True:  # make sure it is not repeated
         q_option = random.choice(database.learning_database)
         input_question = input_data.gen_learning_question(q_option)
 
@@ -56,7 +63,8 @@ for day in range(number_of_days):
         print("No questions this time!")
     else:
         # get input
-        user_input = input(input_question+": ")
+        print("\n- Help me to learn more about you, %s! -" %username)
+        user_input = input(input_question + ": ")
 
         # extract nouns and send to new database
         new_nouns = get_nouns(user_input)
@@ -70,14 +78,14 @@ for day in range(number_of_days):
     # select between write and draw
     check_task = True
     count_task = 0
-    if len(database.new_database): # check if empty
-        while check_task == True: # make sure it is not repeated
+    if len(database.new_database):  # check if empty
+        while check_task == True:  # make sure it is not repeated
             q_new_option = random.choice(database.new_database)
             coin = random.random()
             if coin >= 0.5:
-                task = task_manager.gen_task('write',q_new_option)
+                task = task_manager.gen_task('write', q_new_option)
             else:
-                task = task_manager.gen_task('draw',q_new_option)
+                task = task_manager.gen_task('draw', q_new_option)
 
             # check repeated
             check_task = task_manager.check_repeated_task(task)
@@ -92,7 +100,8 @@ for day in range(number_of_days):
         if task == "No questions this time!":
             print("No questions this time!")
         else:
-            task_answer = input(task+": ")
+            print("\n- Here's my task to help you being more creative: -")
+            task_answer = input(task + ": ")
 
     else:
         print("No task this time!")
