@@ -21,7 +21,7 @@ class ManageInputs():
     """
 
     def __init__(self):
-        self.size_input = 0
+        self.inputs_asked = [] # empty list of tasks asked
 
     def gen_learning_question(self, q_learning_option):
         """
@@ -38,3 +38,23 @@ class ManageInputs():
         question = select_question + q_learning_option
 
         return question
+
+    def check_repeated_inputs(self, user_input):
+        """
+        Check if this was already asked.
+
+        Inputs
+        ---------
+        inputs = string containing inputs
+
+        Outputs
+        ---------
+        inputs_status = if asked or not (False, True)
+        """
+        input_status = user_input in self.inputs_asked
+
+        # append if never asked
+        if input_status == False:
+            self.inputs_asked.append(user_input)
+
+        return input_status
