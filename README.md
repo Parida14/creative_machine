@@ -1,6 +1,5 @@
-![Alt text](logo_creative_machine.png)
-
-## Machine Learning to help user on creative therapy.
+# creative_machine
+Machine Learning to help user on creative therapy.
 
 Have you ever heard about Creative Therapy?
 
@@ -13,4 +12,6 @@ For this demo we will be simulating the activity for 3 consecutive days.
 On the final app you are supposed to complete only task a day. Take it easy :)
 The important part is HOW you complete the task! Not the quantity.
 
-### Hackathon: CodeRED Curiosity - Houston, TX - October 29-30, 2016
+To test our code, please run:
+
+Hackathon: CodeRED Curiosity - Houston, TX - October 29-30, 2016

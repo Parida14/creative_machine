@@ -50,7 +50,7 @@ def sentiment_analysis(text):
     p, s = TextBlob(text).sentiment
     return p, s
 
-def report_sentiment(sentiment_data):
+def report_sentiment(sentiment_data,dict_polarity,dict_subjectivity):
     """
     After complete the whole activity, create a small report based on the
     sentiment collected.
@@ -58,6 +58,13 @@ def report_sentiment(sentiment_data):
     p = sentiment_data[:,0]
     s = sentiment_data[:,1]
     day = sentiment_data[:,2]
+
+    # sort ranking
+    pol_sorted_list = sorted(dict_polarity, key=lambda key: dict_polarity[key])
+    sub_sorted_list = sorted(dict_subjectivity, key=lambda key: dict_subjectivity[key])
+
+    # print ranking
+    # print(pol_sorted_list)
 
     # plot sentiment and subjectivity
     plt.figure()

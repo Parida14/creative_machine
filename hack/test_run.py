@@ -27,6 +27,8 @@ number_of_days = 3
 sentiment_data = np.zeros((number_of_days,3))   # for sentiment analysis
 questions_selected = [] # save questions asked
 answers_given = []      # answers_given by the user
+dict_polarity = {}      # for sentiment ranking
+dict_subjectivity = {}
 
 # initialize all
 input_manager = ManageInputs()
@@ -128,6 +130,10 @@ for day in range(number_of_days):
                 p,s = sentiment_analysis(task_answer)
                 sentiment_data[day,:] = [p, s, day]
 
+                # update ranking
+                dict_polarity.update({q_new_option : p})
+                dict_subjectivity.update({q_new_option : s})
+
     else:
         print("No task this time!")
 
@@ -135,4 +141,4 @@ for day in range(number_of_days):
 
 
 # execute a final report based on sentiment analysis
-report_sentiment(sentiment_data)
+report_sentiment(sentiment_data,dict_polarity,dict_subjectivity)
