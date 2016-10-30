@@ -13,9 +13,9 @@ For this demo we will be simulating the activity for 3 consecutive days.
 On the final app you are supposed to complete only task a day. Take it easy :)
 The important part is HOW you complete the task! Not the quantity.
 
-To test the code please run:
+To test the code please run (inside creative_machine directory):
 ```
-python3 test_run.py
+python3 ./hack/test_run.py
 ```
 
 ### Hackathon: CodeRED Curiosity - Houston, TX - October 29-30, 2016
