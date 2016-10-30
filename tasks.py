@@ -31,7 +31,7 @@ class ManageTasks():
     def initialize_class(self):
         self.tasks_asked = [] # empty list of tasks asked
 
-    def gen_task(self, q_type="write", q_option="food"):
+    def gen_task(self, q_type, q_option):
         """
         Generate tasks based on inputs.
 
@@ -43,8 +43,8 @@ class ManageTasks():
         Outputs
         ---------
         task = string with task
-        data = output the selected q_type and q_option to create a future list
-               and block repeated tasks.
+        data = output the selected q_type and q_option from the database to
+               create a future list and block repeated tasks.
         """
         # check what it the task about
         if q_type == "write":
@@ -83,3 +83,9 @@ class ManageTasks():
             self.tasks_asked.append(task)
 
         return task_status
+
+    def get_task_answer(answer):
+        """
+        This method will receive the answer from the user
+        """
+        self.task_answer = answer
