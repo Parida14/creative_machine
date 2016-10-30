@@ -19,7 +19,7 @@ from extract import get_nouns, sentiment_analysis, report_sentiment
 from tasks import ManageTasks
 from database import ManageDatabase, init_text
 from manage_input import ManageInputs
-from test_json import output_to_json
+#from test_json import output_to_json
 #from work_on_web import run
 
 # parameters
@@ -72,10 +72,10 @@ for day in range(number_of_days):
 
         # save the data and send to json
         questions_selected.append(input_question)
-        output_to_json(input_question)
+        #output_to_json(input_question)
 
         answers_given.append(user_input)
-        output_to_json(user_input)
+        #output_to_json(user_input)
 
         # extract nouns and send to new database
         new_nouns = get_nouns(user_input)
@@ -118,10 +118,10 @@ for day in range(number_of_days):
 
             # save the data
             questions_selected.append(task)
-            output_to_json(task)
+            #output_to_json(task)
 
             answers_given.append(task_answer)
-            output_to_json(task_answer)
+            #output_to_json(task_answer)
 
             # extract sentiment
             if mode == 'write':
