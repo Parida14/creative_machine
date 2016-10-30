@@ -16,7 +16,7 @@ __date__ = "October 29, 2016"
 import random
 
 
-class ManageTaks():
+class ManageTasks():
     """
     Manage everything related to the tasks.
 
@@ -26,6 +26,9 @@ class ManageTaks():
     check_repeated_task = i will let you guess that
     """
     def ___init___(self):
+        self.tasks_asked = [] # empty list of tasks asked
+
+    def initialize_class(self):
         self.tasks_asked = [] # empty list of tasks asked
 
     def gen_task(self, q_type="write", q_option="food"):
